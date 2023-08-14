@@ -4,4 +4,30 @@ git reset HEAD~2 --hard // откатить изменения на н-ое ко
 
 
 ! ---------- Работает для запушенных изменений --------
-git revert 
+git revert <commit_hash>
+git revert HEAD~2
+
+In case of conflicts that have to be resolved
+git add .
+git revert --continue 
+
+In case if you don't want to resolve conflicts (emergency conflicts)
+git revert --abort 
+
+В отличие от git reset, git revert не откатывается до указанного коммита, но создает новый без внесенных изменений - вплоть до коммита,
+на котором был сделан реверт
+
+
+x ---> y ----> z = x
+
+
+! --------- Git Pull ----------
+git pull = git fetch + git merge 
+
+
+
+! -------- Git Rebase ----------
+
+x ------> y --------> z ---------> a
+          y2 ------> y3 -------> y4
+
